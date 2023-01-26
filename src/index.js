@@ -220,7 +220,7 @@ export default async function fetch(url, options_) {
 						}
 
 						// HTTP-redirect fetch step 11
-						if (response_.statusCode === 303 || ((response_.statusCode === 301 || response_.statusCode === 302) && request.method === 'POST')) {
+						if (response_.statusCode === 303) {
 							requestOptions.method = 'GET';
 							requestOptions.body = undefined;
 							requestOptions.headers.delete('content-length');

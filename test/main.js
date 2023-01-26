@@ -283,7 +283,7 @@ describe('node-fetch', () => {
 		await res.arrayBuffer();
 	});
 
-	it('should follow POST request redirect code 301 with GET', async () => {
+	it('should follow POST request redirect code 301 with POST', async () => {
 		const url = `${base}redirect/301`;
 		const options = {
 			method: 'POST',
@@ -293,8 +293,8 @@ describe('node-fetch', () => {
 		expect(res.url).to.equal(`${base}inspect`);
 		expect(res.status).to.equal(200);
 		const result = await res.json();
-		expect(result.method).to.equal('GET');
-		expect(result.body).to.equal('');
+		expect(result.method).to.equal('POST');
+		expect(result.body).to.equal('a=1');
 	});
 
 	it('should follow PATCH request redirect code 301 with PATCH', async () => {
@@ -321,8 +321,8 @@ describe('node-fetch', () => {
 		expect(res.url).to.equal(`${base}inspect`);
 		expect(res.status).to.equal(200);
 		const result = await res.json();
-		expect(result.method).to.equal('GET');
-		expect(result.body).to.equal('');
+		expect(result.method).to.equal('POST');
+		expect(result.body).to.equal('a=1');
 	});
 
 	it('should follow PATCH request redirect code 302 with PATCH', async () => {
